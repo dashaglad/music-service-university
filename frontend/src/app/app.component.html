@@ -1,0 +1,9 @@
+<app-header [isLoggedIn]="isLoggedIn" [isArtist] = "isArtist" [currentUser]="currentUser"></app-header>
+<app-navigation [isLoggedIn]="isLoggedIn" [isArtist] = "isArtist" [currentUser]="currentUser"></app-navigation>
+
+<div class="p-5">
+  <router-outlet></router-outlet>
+</div>
+
+<app-footer></app-footer>
+

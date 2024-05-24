@@ -1,0 +1,13 @@
+<div class="row">
+  <a [routerLink]="['/songs/favorite']" class="text-decoration-none text-light">
+    <h3>Избранные треки</h3>
+  </a>
+</div>
+
+<app-songs [songs]="songs"></app-songs>
+
+<div class="row mt-3">
+  <h3>Избранные альбомы</h3>
+</div>
+
+<app-albums [albums]="albums"></app-albums>

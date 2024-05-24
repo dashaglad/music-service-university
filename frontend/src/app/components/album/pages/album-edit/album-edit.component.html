@@ -1,0 +1,33 @@
+<div class="container m-4 p-3" style="width: 100%;">
+  <div class="row">
+    <a routerLink="/albums/{{albumId}}" class="link-light text-decoration-none"> < Назад к альбому</a>
+  </div>
+
+  <div class="row m-1 my-2">
+    <div class="col-3">
+      <img src="#" class="card-img-top" alt="...">
+    </div>
+  </div>
+
+  <div class="row my-2 p-3">
+    <form [formGroup]="form">
+      <div class="row my-1">
+        <label class="form-label">Название</label>
+        <input type="text" formControlName="title" class="form-control bg-dark text-light" placeholder="{{album?.title}}">
+      </div>
+      <div class="row my-1">
+        <label class="form-label">Описание</label>
+        <input formControlName="description" class="form-control bg-dark text-light" placeholder="{{album?.description}}">
+      </div>
+      <button (click)="submit()" class="btn btn-primary btn-light row my-1">Изменить</button>
+    </form>
+  </div>
+
+  <div class="row my-2 p-3">
+    <a [routerLink]="['/albums/', albumId, 'songs', 'create']" class="d-flex align-items-center nav-link link-light p-1">
+      <img src="../../../../../assets/img/album/edit/add.svg" style="width: 25px;" alt="">
+    </a>
+  </div>
+
+  <app-songs [songs]="album.songs"></app-songs>
+</div>

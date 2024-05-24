@@ -1,0 +1,10 @@
+<ul class="songs-list row m-0 list-unstyled d-flex flex-wrap justify-content-around">
+  <li *ngFor="let song of songs" class="m-2 d-flex align-items-center">
+    <button (click)="likeOrUnlikeSong(song)" type="submit" class="btn btn-circle btn-dark p-2  mx-2" style="border-radius: 50%">
+      <img *ngIf="!song.liked" src="../../../../assets/img/album/like.svg" style="width: 25px">
+      <img *ngIf="song.liked" src="../../../../assets/img/album/unlike.svg" style="width: 25px">
+    </button>
+    <audio controls src="{{song.url}}"></audio>
+    <span class="mx-2">{{song.title}}</span>
+  </li>
+</ul>

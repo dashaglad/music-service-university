@@ -1,0 +1,32 @@
+<div class="col-4 mx-auto text-white">
+  <div class="row h3 justify-content-center my-4">
+    Регистрация
+  </div>
+  <div class="row">
+    <form [formGroup]="form">
+      <div class="mb-3">
+        <label class="form-label">Электронная почта</label>
+        <input autofocus type="email" formControlName="email" class="form-control">
+        <small *ngIf="emailControl?.hasError('email')" class="text-muted my-1">
+          Пожалуйста, введите корректный адрес электронной почты
+        </small>
+        <small *ngIf="emailControl?.hasError('required')" class="text-muted my-1">
+          Электронная почта <strong>обязательна</strong> для заполнения
+        </small>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Пароль</label>
+        <input type="password" formControlName="password" class="form-control">
+        <small *ngIf="passwordControl?.hasError('required')" class="text-muted my-1">
+          Пароль <strong>обязателен</strong> для заполнения
+        </small>
+      </div>
+      <div class="mb-3 form-check">
+        <label for="artist" class="form-check-label">Я артист</label>
+        <input type="checkbox" name="artist" id="artist" class="form-check-input" disabled>
+      </div>
+      <button (click)="submit()" type="submit" class="btn btn-primary">Зарегистрироваться</button>
+    </form>
+  </div>
+</div>
+

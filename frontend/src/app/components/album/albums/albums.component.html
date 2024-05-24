@@ -1,0 +1,26 @@
+<div class="row">
+  <ul class="list-unstyled d-flex flex-wrap">
+    <li class="mx-2 my-3" *ngFor="let album of albums">
+      <a [routerLink]="['/albums', album.id]" class="text-decoration-none m-0 p-0">
+        <div class="card text-white bg-secondary h-100 m-0" style="width: 15rem;">
+          <img src="#" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">{{album.title}}</h5>
+            <p class="card-subtitle mb-2">{{album.owner.name}}</p>
+            <p class="card-text text-muted">
+              <small>{{album.date | date:'mediumDate'}}</small>
+            </p>
+            <p class="card-text">{{album.description}}</p>
+            <p class="card-text">
+              <img src="assets/img/album/like.svg" width="20px;">
+              <span class="mx-2 text-center align-middle">{{album.likes}}</span>
+            </p>
+          </div>
+        </div>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+

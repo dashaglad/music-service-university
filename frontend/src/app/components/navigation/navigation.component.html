@@ -1,0 +1,47 @@
+<nav>
+  <aside>
+    <div class="container mt-5">
+      <ul class="nav flex-column">
+        <li class="nav-item">
+          <a class="nav-link link-light" href="">
+            <img class="w-100 h-auto" src="assets/img/logo.svg" alt="Логотип">
+          </a>
+        </li>
+        <li class="nav-item mt-4">
+          <ul class="list-unstyled">
+            <li class="my-1">
+              <a class="d-flex align-items-center nav-link link-light" href="">
+                <img class="h-auto mx-3" style="width: 20px;" src="assets/img/nav/home.svg">
+                <h6 class="m-0 align-items-center">Главная</h6>
+              </a>
+            </li>
+            <li class="my-1">
+              <a [routerLink]="['/albums']" class="d-flex align-items-center nav-link link-light">
+                <img class="h-auto mx-3" style="width: 20px;" src="assets/img/nav/media.svg">
+                <h6 class="m-0 align-items-center">Медиатека</h6>
+              </a>
+            </li>
+            <li class="my-1" *ngIf="isLoggedIn">
+              <a [routerLink]="['/media-favorite']" class="d-flex align-items-center nav-link link-light">
+                <img class="h-auto mx-3" style="width: 20px;" src="assets/img/nav/like-box.svg">
+                <h6 class="m-0 align-items-center">Избранное</h6>
+              </a>
+            </li>
+            <li class="my-1 mt-4" *ngIf="isArtist">
+              <a [routerLink]="['/albums/own']" class="d-flex align-items-center nav-link link-light">
+                <img class="h-auto mx-3" style="width: 20px;" src="assets/img/nav/albums.svg">
+                <h6 class="m-0 align-items-center">Мои альбомы</h6>
+              </a>
+            </li>
+            <li class="my-1" *ngIf="isArtist">
+              <a [routerLink]="['/albums/create']" class="d-flex align-items-center nav-link link-light">
+                <img class="h-auto mx-3" style="width: 20px;" src="assets/img/nav/add.svg">
+                <h6 class="m-0 align-items-center">Добавить альбом</h6>
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </aside>
+</nav>

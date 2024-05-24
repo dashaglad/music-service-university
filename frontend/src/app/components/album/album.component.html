@@ -1,0 +1,56 @@
+<div class="container m-4 p-3" style="width: 100%;">
+  <div class="row m-2">
+    <div class="col-3">
+      <img src="#" class="card-img-top" alt="cover">
+    </div>
+  </div>
+  <div class="row my-2">
+    <div class="mx-1 my-2 d-flex">
+      <button (click)="likeOrUnlikeAlbum()" type="submit" class="btn btn-circle btn-dark p-2  mx-2"
+              style="border-radius: 50%">
+        <img *ngIf="!album.liked" src="assets/img/album/like.svg" style="width: 25px">
+        <img *ngIf="album.liked" src="assets/img/album/unlike.svg" style="width: 25px">
+      </button>
+
+      <a [routerLink]="['edit']" *ngIf="isCurrentUserOwner" class="btn btn-circle btn-dark p-2 mx-2"
+         style="border-radius: 50%">
+        <img src="assets/img/album/edit.svg" style="width: 25px;" alt="Редактировать">
+      </a>
+
+      <button (click)="delete()" *ngIf="isCurrentUserOwner" type="submit" class="btn btn-circle btn-dark p-2  mx-2"
+              style="border-radius: 50%">
+        <img src="assets/img/album/delete.svg" style="width: 25px">
+      </button>
+    </div>
+  </div>
+
+  <div class="row my-2">
+    <div class="d-flex align-items-center">
+      <span class="mx-2">Музыкант:</span>
+      <span>{{album.owner.name}}</span>
+    </div>
+  </div>
+
+  <div class="row my-2">
+    <div class="d-flex align-items-center">
+      <span class="mx-2">Описание: </span>
+      <span>{{album.description}}</span>
+    </div>
+  </div>
+
+  <div class="row my-2">
+    <div class="d-flex align-items-center">
+      <p class="text-muted mx-2">
+        <small>{{album.date | date:'mediumDate'}}</small>
+      </p>
+    </div>
+  </div>
+
+  <div class="row mt-5">
+    <h2>{{album.title}}</h2>
+  </div>
+
+  <div class="row">
+    <app-songs [songs]="album.songs"></app-songs>
+  </div>
+</div>

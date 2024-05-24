@@ -1,0 +1,24 @@
+<header>
+  <div class="container my-2">
+    <ul class="nav justify-content-end align-items-center">
+      <li class="nav-item" *ngIf="!isLoggedIn">
+        <a [routerLink]="['/register']" class="nav-link link-secondary">Зарегистрироваться</a>
+      </li>
+      <li class="nav-item ms-1" *ngIf="!isLoggedIn">
+        <a [routerLink]="['/login']" class="btn btn-primary btn-light">Войти</a>
+      </li>
+      <li class="nav-item" *ngIf="isLoggedIn">
+        <span>{{currentUser?.email}}</span>
+      </li>
+      <li class="nav-item mx-2" *ngIf="isArtist">
+        |
+      </li>
+      <li class="nav-item" *ngIf="isArtist">
+        <span>{{currentUser?.artist?.name}}</span>
+      </li>
+      <li class="nav-item" *ngIf="isLoggedIn">
+        <button (click)="logout()" class="btn btn-link link-secondary text-decoration-none">Выйти</button>
+      </li>
+    </ul>
+  </div>
+</header>

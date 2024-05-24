@@ -1,0 +1,17 @@
+<form [formGroup]="form">
+  <div class="mb-2">
+    <label class="form-label">Название</label>
+    <input autofocus type="text" formControlName="title" class="form-control bg-dark text-light" placeholder="Название">
+    <small *ngIf="titleControl?.hasError('required')" class="text-muted my-1">
+      Название <strong>обязательно</strong> для заполнения
+    </small>
+  </div>
+  <div class="mb-2">
+    <label class="form-label">Описание</label>
+    <input autofocus type="text" formControlName="description" class="form-control bg-dark text-light" placeholder="Описание">
+    <small *ngIf="descriptionControl?.hasError('required')" class="text-muted my-1">
+      Описание <strong>обязательно</strong> для заполнения
+    </small>
+  </div>
+  <button (click)="submit()" class="btn btn-primary btn-light">Создать</button>
+</form>

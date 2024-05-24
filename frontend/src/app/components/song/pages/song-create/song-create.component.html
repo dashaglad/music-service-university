@@ -1,0 +1,24 @@
+<div class="container m-4 p-3" style="width: 100%;">
+  <div class="row">
+    <a [routerLink]="['/albums/', albumId ,'edit']" class="link-light text-decoration-none"> < Назад к редактированию альбома</a>
+  </div>
+  <div class="row my-2 p-3">
+    <form [formGroup]="form" enctype="multipart/form-data">
+      <div class="row my-2">
+        <label class="form-label">Название</label>
+        <input formControlName="title" type="text" class="form-control bg-dark text-light" autofocus placeholder="Название">
+        <small *ngIf="titleControl?.hasError('required')" class="text-muted my-1">
+          Название <strong>обязательно</strong> для заполнения
+        </small>
+      </div>
+      <div class="row my-2">
+        <label class="form-label">Загрузите трек</label>
+        <input type="file" formControlName="file" (change)="onFileChange($event)" class="form-control bg-dark text-light">
+        <small *ngIf="fileControl?.hasError('required')" class="text-muted my-1">
+          Файл <strong>должен быть</strong> выбран
+        </small>
+      </div>
+      <button (click)="submit()" type="submit" class="btn btn-primary btn-light row my-2">Создать</button>
+    </form>
+  </div>
+</div>
